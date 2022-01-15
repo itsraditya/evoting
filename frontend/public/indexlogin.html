@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9782be8717.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/homelogin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+           <div class="image">
+           <img src="main3.jpg"  alt="" align="left" height="40%">
+           <img src="main6.jpg" alt="" align="left" id="img" height="30%">
+        </div>
+        </div>
+        <div class="right" name="MyForm">
+            <form class="form" name="myForm" ng-app="myApp" ng-controller="validateCtrl" class="form" align="left">
+                <h1>LOGIN HERE</h1>
+                <hr>
+                <label for="First name"><b>Name</b></label> <br>
+                <input type="text" name="user" id="n" ng-model="user" required placeholder="Enter Name"><br>
+                <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                <span ng-show="myForm.user.$error.required">Voter Name is required.</span>
+                </span>
+                <br>
+
+                <label for="email"><b>Email</b></label><br>
+                <input type="email" name="email" ng-model="email" required placeholder="Enter your email"><br>
+                <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                <span ng-show="myForm.email.$error.required">Email is required.</span>
+                <span ng-show="myForm.email.$error.email">Invalid email address.</span></span>
+                <br>
+
+                <label for="password"><b>Password</b></label><br>
+                <input type="password" ng-model="pass" name="pass" ng-pattern="re" placeholder="Enter password." required><br>
+                <span style="color:red" ng-show="myForm.pass.$dirty && myForm.pass.$invalid">
+                <span ng-show="myForm.pass.$error.required">Password is required.</span>
+                <span ng-show="myForm.pass.$error.pattern">Not valid password.</span>
+                </span>
+                <br>
+                
+                <div id="buttons">
+                <button type="submit" class="btn btn-success btn-lg" ng-click="redirect()">Submit</button>
+                <button type="reset" class="btn btn-light" id="cl" >Reset</button></div>
+                </form>
+        </div>
+
+      </div>
+      <script>
+        var app = angular.module('myApp', []);
+        app.controller('validateCtrl', function($scope,$window) {
+        $scope.re = /^[a-zA-Z0-9-!@#$%^&*()]{3,14}$/;
+        $scope.redirect=function(){
+            if($scope.user==undefined||$scope.email==undefined||$scope.pass==undefined)
+            {
+                alert("Fields are empty");
+            }
+            else{
+                window.location.href="https://rvd-24.github.io/WebElectt/Create_Election/";
+            }
+        }
+        });
+        
+      </script>
+</body>
+</html>

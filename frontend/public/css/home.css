@@ -1,0 +1,129 @@
+*
+{
+ box-sizing: border-box
+}
+.container
+{
+  width: 100%;
+ margin:50px;
+ margin-left: 100px;
+ padding-top: none;
+}
+ h1
+ {
+ margin: none;
+ padding-top: none;
+ padding-bottom: 3px;
+ text-decoration:solid;
+ font-weight: 100;
+ text-align: left;
+ }
+ a
+ {
+ color:rgba(25, 150, 108, 0.678);
+ }
+ a:hover
+ {
+ color: deeppink;
+ }
+ .sub
+ {
+ color:whitesmoke;
+ background-color:rgba(25, 150, 108, 0.678);
+ box-sizing: border-box;
+ font-size: x-large;
+ padding: 10px;
+ font-weight: 500;
+ width: 40%;
+ border: none;
+ }
+ .sub:hover
+ {
+ background-color: rgba(19, 206, 112, 0.918);
+ }
+ .res:hover
+ {
+ background-color: rgba(19, 206, 112, 0.918);
+ }
+ .res
+ {
+ color:whitesmoke;
+ background-color:rgba(25, 150, 108, 0.678);
+ font-size:x-large;
+ padding: 10px;
+ font-weight: 500;
+ font-family: Algerian;
+ width: 40%;
+ border: none;
+
+ }
+ input[type=text], input[type=password], input[type=email]
+ {
+ width: 80%;
+ padding: 10px;
+ margin: 5px 0 22px 0;
+ display: inline-block;
+ border: none;
+ background: #f1f1f1;
+ }
+ .form
+ {
+ padding: 30px;
+ }
+ .signin
+ {
+ background-color: #f1f1f1;
+ text-align: center;
+ padding: 3px;
+ width: 80%;
+ }
+ .para
+ {
+
+ width:50%;
+ padding-right: 15px;
+ margin-right: 20%;
+ background-color:rgba(25, 150, 108, 0.678);
+ text-align: right;
+ display:inline-table;
+ position: relative;
+ object-fit: contain;
+ }
+
+ .column
+ {
+ float:right;
+ width: 50%;
+
+ }
+
+ .img
+ {
+ border: 5px, solid;
+ padding: 5px;
+ padding-top: 3%;
+ margin-left: 30px;
+
+ }
+ .row:after
+ {
+ content: "";
+ display:block;
+ clear: both;
+
+ }
+footer
+{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: -100px;
+}
+.foot
+{
+    color:rgba(19, 206, 112, 0.918);
+}
+body{
+  font-family: 'Quicksand', sans-serif;
+}

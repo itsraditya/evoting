@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+ <head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/addcandidate.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9782be8717.js" crossorigin="anonymous"></script></head>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        $("#addvote").click(function(){
+        document.getElementById("showdetails").style.display="";
+        candidate=
+        [
+            {
+                "Name":$("#name").val(),
+                "Email":$("#email").val(),
+                "Desc":$("msg").val()
+            }
+        ];
+        for(var i=0; i<candidate.length;i++)
+            {
+                var tr="<tr>";
+                var td1 ="<td colspan=2>"+candidate[i]["Name"]+"</td>";
+                var td2 ="<td colspan=2>"+candidate[i]["Email"]+"</td>";
+                $("#showdetails").append(tr+td1+td2);
+            }
+        });
+
+});
+    </script>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><i class="material-icons">description</i><a id="top" href="https://rvd-24.github.io/WebElectt/Overview/"> Overview</a></li>
+            <li><i  class="material-icons">settings</i><a id="top" href="#"> Settings</a></li>
+            <li><i class="material-icons">ballot</i><a id="top" href="https://rvd-24.github.io/WebElectt/AddC/"> Ballot</a></li>
+            <li><i class="material-icons">how_to_reg</i><a id="top" href="https://rvd-24.github.io/WebElectt/AddV/">Voters</a></li>
+            <li><i class="material-icons">preview</i><a id="top" href="https://rvd-24.github.io/WebElectt/VotingPortal/">Preview</a></li>
+            <li><i class="fas fa-rocket" id="rocket"></i><a id="top" href="https://rvd-24.github.io/WebElectt/VotingPortal/"">Launch</a></li>
+        </ul>
+    </div>
+    <div class="box">
+        <h1> Add Candidates</h1>
+        <p class="lead">Add Candidates for this election.</p>
+        <button type="button" class="btn btn-success btn-lg" id="add-candidate"><i class="material-icons">add</i>Add Candidate</button>
+    </div>
+    <form>
+    <div class="popup">
+        <div class="form">
+        <h2>Candidate's Details</h2>
+        <div class="form-element">
+            <label for="Name">Name</label>
+            <input type="text" id="name" placeholder="Enter Name" required maxlength="30" minlength="7">
+        </div>
+        <div class="form-element">
+            <label for="Email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter Email" required>
+        </div>
+        <div class="form-element">
+            <label for="msg"><span>Enter Description</span></label><br>
+            <textarea name="message" rows="2" class="question" id="msg" required autocomplete="off"></textarea>
+        </div>
+        <div class="form-element">
+            <button type="button" class="btn btn-success btn-lg" id="addvote"><i class="icon-plus"></i>Submit</button>
+            <button type="button" class="btn btn-light" id="cl" >Close</button>
+            <button type="reset"  class="btn btn-Dark" id="reset">Reset</button>
+        </div>
+        </div>
+    </div>
+    </form>
+    <div id="disp" class="showme">
+        <table id="showdetails" align="center" border="2px solid" style="display: none;">
+            <tr  rowspan="6" style="border: 1px solid;column-span: 2px;">
+                <td colspan="2">Candidate Name</td>
+                <td colspan="2">Candidate Email</td>
+                <!-- <td colspan="2">Email</td> -->
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.querySelector("#add-candidate").addEventListener("click",function()
+        {document.querySelector(".popup").classList.add("active");});
+        document.querySelector("#cl").addEventListener("click",function()
+        {document.querySelector(".popup").classList.remove("active");});
+    </script>
+</body>
+</html>

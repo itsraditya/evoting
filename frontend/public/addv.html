@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+ <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/addvoter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <script src="randomkey_id_generator.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9782be8717.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        $("#addvote").click(function(){
+        document.getElementById("showdetails").style.display="";
+        voters=
+        [
+            {
+                "Name":$("#namevoter").val(),
+                "VoterID":$("#voterid").val(),
+                "Email":$("#email").val()
+            }
+        ];
+        for(var i=0; i<voters.length;i++)
+            {
+                var tr="<tr>";
+                var td1 ="<td colspan=2>"+voters[i]["Name"]+"</td>";
+                var td2 ="<td colspan=2>"+voters[i]["VoterID"]+"</td>";
+                var td3 ="<td colspan=2>"+voters[i]["Email"]+"</td>"+"</tr>";
+                $("#showdetails").append(tr+td1+td2+td3);
+            }
+        });
+
+});
+    </script>
+</head>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><i class="material-icons">description</i><a id="top" href="https://rvd-24.github.io/WebElectt/Overview/">Overview</a></li>
+            <li><i  class="material-icons">settings</i><a id="top" href="#"> Settings</a></li>
+            <li><i class="material-icons">ballot</i><a id="top" href="https://rvd-24.github.io/WebElectt/AddC/"> Ballot</a></li>
+            <li><i class="material-icons">how_to_reg</i><a id="top" href="https://rvd-24.github.io/WebElectt/AddV/">Voters</a></li>
+            <li><i class="material-icons">preview</i><a id="top" href="#">Preview</a></li>
+            <li><i class="fas fa-rocket" id="rocket"></i><a id="top" href="https://rvd-24.github.io/WebElectt/VotingPortal/">Launch</a></li>
+        </ul>
+    </div>
+    <div class="box">
+        <h1> Add Voters</h1>
+        <p class="lead">Add voters to this election.</p>
+        <button type="button" class="btn btn-success btn-lg" id="add-voter"><i class="material-icons">add</i>Add Voter</button>
+    </div>
+    <div class="popup">
+        <div class="form">
+        <h2>Voter Details</h2>
+        <div class="form-element">
+            <label for="Name">Name</label>
+            <input type="text" id="namevoter" placeholder="Voter's Name" required maxlength="30" minlength="7">
+        </div>
+        <div class="form-element" id="votei">
+            <label for="ID"><br>Voter ID</label>
+            <input type="text" id="voterid" placeholder="Voter-ID" value="" required>
+            <button type="button" class="btn btn-info" onclick="main()" id="badge"><i class="material-icons">badge</i></button>
+        </div>
+        <div class="form-element" id="votek">
+            <label for="ID"><br>Voter Key</label>
+            <input type="text" id="voterkey" placeholder="Voter-Key" value="" required>
+            <button type="button" class="btn btn-info" onclick="main()" id="key"><i class="material-icons">key</i></button>
+        </div>
+        <div class="form-element">
+            <label for="Email">Email Address</label>
+            <input type="email" id="email" placeholder="Voter's E-mail" required>
+        </div>
+        <div class="form-element">
+            <button type="button" class="btn btn-success btn-lg" id="addvote"><i class="icon-plus"></i>Add Voter</button>
+            <button type="button" class="btn btn-light" id="cl" >Close</button>
+        </div>
+        </div>
+    </div>
+    <div id="disp" class="showme">
+        <table id="showdetails" align="center" border="2px solid" style="display: none;">
+            <tr  rowspan="6" style="border: 1px solid;column-span: 2px;">
+                <td colspan="2">Voter Name</td>
+                <td colspan="2">Voter ID</td>
+                <td colspan="2">Email</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.querySelector("#add-voter").addEventListener("click",function()
+        {document.querySelector(".popup").classList.add("active");});
+        document.querySelector("#cl").addEventListener("click",function()
+        {document.querySelector(".popup").classList.remove("active");});
+    </script>
+</body>
+</html>

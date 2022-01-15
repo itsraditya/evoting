@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Create an Election!
+        </title>
+        <link rel="stylesheet" href="css/createelection.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1 align="center">Create an Election!</h1>
+            <form method="POST" class="elect" action="/createelect">
+                    <div class="box">
+                        <label for="Title">Title</label><br>
+                        <input type="text" name="title" minlength="2" id="title" maxlength="200" placeholder="e.g. School/College,Board of Directors,Political" required><br>
+                            <div class="sd">
+                           <label for="Start Date">Start Date</label><br>
+                            <input type="datetime-local" name="start" id="sdate" required><br></div>
+                            <div class="ed">
+                            <label for="End Date">End Date</label><br>
+                            <input type="datetime-local" id="edate" name="end" required><br></div>
+                        <div> 
+                        <button type="submit" class="btn btn-success submit" onclick="redirect()">Submit</button><br></div>
+                    </div></form>
+        </div>
+        <button type="button" class="btn btn-warning" id="help" onclick="help()">Help</button><br>
+        <footer align="center">
+            &copy; 2021 Student Voting Form. All Rights Reserved | Designed By <span class="foot">Students</span> 
+        </footer>
+        <script>
+            function help(){
+                alert("Enter Name of Election and the Start and End Date for it.")
+            }
+            function redirect(){
+                var title=document.getElementById("title").val;
+                var sdate=document.getElementById("sdate").val;
+                var edate=document.getElementById("edate").val;
+                if(t==undefined||sdate==undefined||edate==undefined){
+                    alert("Fields are empty");
+                }
+            }
+        </script>
+        <script src="ejs.js"></script>
+    </body>
+</html>

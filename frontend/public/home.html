@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Voting Login</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/home.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+ <script src="https://kit.fontawesome.com/9782be8717.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.js" integrity="sha512-C92rntF0G0YH9kHzQlpux7ADvyKgyUwBqusewsHs/0ibOTNuHxFyVqDkI0BIcLGyP76fxgLOpMOLO6kmHCS/xA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+ <div class="row">
+ <div class="column">
+ <article>
+                <form method="POST" class="form" align="left" ng-app="myApp" ng-controller="validateCtrl" name="myForm" action="reg_details"  novalidate>
+                    <div class="container">
+                        <h1><b>REGISTER HERE</b></h1>
+                    </div>
+
+                    <label for="First name"><b>First name</b></label> <br>
+                    <input type="text" name="user" ng-model="user" required placeholder="Enter first name"><br>
+                    <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                    <span ng-show="myForm.user.$error.required">First name is required.</span>
+                    </span>
+                    <br><br>
+
+                    
+                    <label for="last name"><b>Last name</b></label> 
+                    <br>
+                    <input type="text" name="last" ng-model="last" required placeholder="Enter last name"><br>
+                    <span style="color:red" ng-show="myForm.last.$dirty && myForm.last.$invalid">
+                    <span ng-show="myForm.last.$error.required">Lastname is required.</span>
+                    </span>
+                    <br><br>
+                    
+                    <label for="email"><b>Email</b></label>
+                    <br>
+                    <input type="email" name="email" ng-model="email" required placeholder="Enter your email"><br>
+                    <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                    <span ng-show="myForm.email.$error.required">Email is required.</span>
+                    <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+                    </span>
+                    <br><br>
+                    
+                    
+                    <b>Phone Number</b>
+                    <br>
+                    <input type="text" name="phone" ng-model="phone" ng-pattern="pho" required placeholder="Enter your phone number"><br>
+                    <span style="color:red" ng-show="myForm.phone.$dirty && myForm.phone.$invalid">
+                    <span ng-show="myForm.phone.$error.required">Phone no is required.</span>
+                    <span ng-show="myForm.phone.$error.pattern">Invalid phone no.</span>
+                    </span>
+                    <br><br>
+
+                    <b>Gender</b> 
+                    <br>
+                    <input type="radio" name="gender" value="Male" checked>Male
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="gender" value="Female">Female
+                    <br>
+                    <br>
+
+                    <b>Password</b> 
+                    <br>
+                    <input type="password" ng-model="pass" name="pass" ng-pattern="re" placeholder="Enter password." required><br>
+                    <span style="color:red" ng-show="myForm.pass.$dirty && myForm.pass.$invalid">
+                    <span ng-show="myForm.pass.$error.required">Password is required.</span>
+                    <span ng-show="myForm.pass.$error.pattern">Not valid password.</span>
+                    </span>
+                    <br><br>
+
+
+                    <b>Confirm password</b> 
+                    <br>
+                    <input type="password" ng-model="repass" ng-keyup="compare(repass)" name="repass" ng-pattern="re" placeholder="Re-enter password." required><br>
+                    <span style="color:red" ng-show="myForm.repass.$dirty && myForm.repass.$invalid">
+                    <span ng-show="myForm.repass.$error.required">Re-password is required.</span>
+                    <span ng-show="isconfirm || myForm.repass.$dirty " ng-class="{true:'green',false:'red'}[isconfirm]">
+                        Password {{isconfirm==true?'':'not'}} match
+                    </span>
+                    </span>
+                    
+                    <div>
+                    <input type="checkbox" name="checkbox" checked> I agree to the <a href="blank" target="new">Terms and Conditions</a> 
+                    <br>
+                    <br>
+    
+                    <button name="submit" class="sub" size="25" ng-disabled = "myForm.user.$dirty && myForm.user.$invalid || myForm.last.$dirty && myForm.last.$invalid || myForm.email.$dirty && myForm.email.$invalid || myForm.regno.$dirty && myForm.regno.$invalid || myForm.phone.$dirty && myForm.phone.$invalid || myForm.pass.$dirty && myForm.pass.$invalid || myForm.repass.$dirty && myForm.repass.$invalid" ng-click="submit()">Submit</button>
+                    <button type="reset" class="res" size="25"  ng-click="reset()">Reset</button>
+                    </div>
+
+                    <br>
+
+                    <div class="signin">
+                        <p>Already have an account? <a href="indexlogin.html">Login</a>.</p>
+                    </div>
+            </form>
+            </article>
+ </div>
+ <div class="img" >
+ <img src="login1.jpg" alt="Image not display" width="43%">
+ <img src="login2.jpg" alt="Image not display" width="43%">
+ </div>
+ </div>
+
+ <br>
+<footer align="center">
+            &copy; 2021 Student Voting Form. All Rights Reserved | Designed By <span class="foot">Students</span> 
+        </footer>
+    <div ng-view></div>
+ <script>
+        var app = angular.module("myApp", []);
+        app.controller('validateCtrl', function($scope,$window) {
+        $scope.pho = /^[0-9]{10}$/;
+        $scope.re = /^[a-zA-Z0-9-!@#$%^&*()]{3,14}$/;
+        $scope.compare = function (repass) {
+                  $scope.isconfirm = $scope.pass == repass ?true : false;
+              }
+        $scope.reset = function() {
+            $scope.user = "";
+            $scope.last = "";
+            $scope.phone = "";
+            $scope.pass = "";
+            $scope.repass = "";
+            }
+            $scope.submit=function()
+            {
+                if($scope.user==undefined||$scope.phone==undefined||$scope.pass==undefined||$scope.repass==undefined){
+                    alert("Fields are empty");
+                }
+                else{
+                    $window.location.href="Create_Election/index.html"
+                }
+            }
+            //$scope.reset();  
+        });
+    </script>
+</body>
+</html>

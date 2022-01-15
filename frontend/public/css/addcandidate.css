@@ -1,0 +1,124 @@
+.navbar 
+{width:100%;
+  position:fixed;
+  top:0;
+  display: flex;
+  height:12%;
+  background-color: #333;
+  overflow:visible;
+  text-align: center;
+}
+.navbar a:hover 
+{
+  color:deeppink ;
+}
+.navbar i:hover{
+  color:deeppink;
+}
+.navbar ul
+{list-style: none;
+  padding-top:15px;
+  text-align: center;
+}
+.navbar li{
+  margin-left: 95px;
+  text-align: center;
+  display:inline;
+}.navbar a{
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0;
+  font-size: 20px;
+}
+.navbar .material-icons,#rocket {
+  width: 25px;
+  height: 25px;
+  margin-right: 2px;
+  color: azure;
+}
+.box{
+  margin-left:40%;
+  margin-right:20%;
+  margin-top:15%;
+}
+.popup {
+  position:absolute
+  ;z-index: 1;
+  top:-150%;
+  left:50%;
+  opacity:0;
+  transform:translate(-50%,-50%) scale(1.25);
+  width:500px;
+  height:500px;
+  padding:20px 30px;
+  background:#fff;
+  box-shadow:2px 2px 5px 5px rgba(0,0,0,0.15);
+  border-radius:10px;
+  transition:top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+}
+.popup.active {
+  top:50%;opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+  transition:top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+}
+.popup .form h2 {
+  text-align:center;
+  color:#222;
+  margin:10px 0px 20px;
+  font-size:25px;
+}
+.popup .form .form-element {margin:15px 0px;}
+.popup .form .form-element label {font-size:18px;color:#222;}
+.popup .form .form-element input{margin-top:5px;
+  display:block;
+  width:100%;
+  height:65%;
+  padding:10px;
+  outline:none;
+  border:1px solid #aaa;
+  border-radius:5px;}
+  .popup .form .form-element button,#reset {
+    width:100%;
+    height:40px;
+    border:none;
+    outline:none;
+    font-size:16px;
+    background:#222;
+    color:#f5f5f5;
+    border-radius:10px;
+    cursor:pointer;
+  }
+  .popup .form .form-element a {
+    display:block;
+    text-align:right;
+    font-size:15px;
+    color:#1a79ca;
+    text-decoration:none;
+    font-weight:600;
+  }
+  #cl,#addvote,#reset{
+    display: flex-inline;
+    width:26%;
+    margin-left:15px;
+    margin-bottom: 20px;
+  }
+#msg{width:89%;height:120px;}
+#add-candidate{margin-left: 48px;background-color: #2ecd10;}
+#import,#add-candidate{display: inline-block;font-size: 1.25 em;}
+label{font-weight: bolder;}
+#mytable{
+  top:50%;
+  left:39%;
+  position:fixed;
+  margin-top:120px;
+  height: 100px;
+  width: 600px;
+  }
+table{
+  height: 100px;
+  width: 80%;
+  border:rgba(34, 34, 34, 0);
+  text-align: center;}
+tr:nth-child(2n){background-color:whitesmoke;}
+body{font-family: 'Quicksand', sans-serif;}
